@@ -129,7 +129,7 @@ $(document).ready(function(){
 	});
 
 	if (!localStorage.pixelUser) {
-		// localStorage.pixelUser = true;
+		localStorage.pixelUser = true;
 		$('#welcomeModal').modal('show');
 	}
 });
