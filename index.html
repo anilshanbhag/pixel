@@ -1,0 +1,111 @@
+<!DOCTYPE html> 
+<html profile="http://www.w3.org/2005/10/profile"> 
+<head>
+<title>Pixel</title>
+<link rel="icon" type="image/png" href="icon.png">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/base64.js"></script>
+<script src="js/canvas2image.js"></script>
+<script src="js/FileSaver.min.js"></script>
+<script src="js/pixelscript.js"></script>
+<style type='text/css'>
+.nav>li>div {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    line-height: 20px;
+}
+
+@media (min-width: 768px) {
+.navbar-nav>li>div {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+}
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #cccccc;
+  border-radius: 1px;
+}
+
+.modal-content {
+	border-radius: 0;
+	padding: 15px;
+}
+</style>
+</head>
+<body>
+<div class="container" style='border-bottom: 1px solid #ececec' id='header'> 
+	<div class="navbar-header"> 
+		<button class="collapsed navbar-toggle" data-target="#bs-navbar" data-toggle="collapse" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
+		</button> 
+		<a href="/" class="navbar-brand"><img src="header.png" style="height:100%" alt="Pixel" /></a> </div> 
+		<nav class="collapse navbar-collapse" id="bs-navbar"> 
+			<ul class="nav navbar-nav navbar-right"> 
+				<li>	
+					<div style>		
+						<span>Pixel Color &nbsp;&nbsp;&nbsp;</span>
+						<input type='color' id='colorpicker' class='btn btn-sm' style='padding: 0'>
+					</div>
+				</li> 
+				<li>
+					<div>
+					<span>Block Size </span>
+					<select name="size" id="size" class="change">
+						<option value="10">10px</option>
+						<option value="20">20px</option>
+						<option value="30">30px</option>
+						<option value="40">40px</option>
+						<option value="50">50px</option>
+						<option value="60">60px</option>
+						<option value="70">70px</option>
+						<option value="80">80px</option>
+						<option value="90">90px</option>
+						<option value="100">100px</option>
+					</select>
+					</div>
+				</li> 
+				<li><a href="#" id="download"><span class="glyphicon glyphicon-download" aria-hidden="true"></span> Download</a></li>
+			</ul> 
+		</nav> 
+</div>
+<canvas id="canvas" width="800" height="600">
+This text is displayed if your browser does not support HTML5 Canvas.
+</canvas>
+<!-- 	<div class='row'>
+		<div class='col-md-12'>
+			<div id="footer">
+				<a class="padded" href="about.html">About</a>
+				<a class="padded" href="help.html">Help</a> 
+				<a class="padded" href="http://twitter.com/masteranil">Contact Me</a>
+			</div>
+		</div>
+	</div> -->
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id='welcomeModal'>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center"><img src="header.png" style="height:60px" alt="Pixel" /></h4>
+      </div>
+      <div class="modal-body">
+        <p>Pixel lets you create pixel art: drawings with jagged edges which looks like an image zoomed in to a great extent. This gives it a distinct unique feel.</p>
+        <p>Here is mario drawn out using Pixel </p>
+		<p align="center" ><img src="logo.png" style='width:200px' alt="mario" /></p> 
+		<p>To draw just click and drag your mouse or use the arrow keys to move the block head. You can also change the color of the block and increase/decrease the size of the paint brush. Happy Pixeling :-)</p>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</body>
+</html>
