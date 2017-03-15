@@ -62,8 +62,8 @@ function resizeCanvas() {
 	if (!canvas) return;
 
 	var ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight - $('#header').outerHeight() - 5;
+    canvas.width = window.outerWidth;
+    canvas.height = window.outerHeight - $('#header').outerHeight() - 5;
 	ctx.fillStyle = $('#colorpicker').val();
 }
 
@@ -89,11 +89,13 @@ $(document).ready(function(){
 	document.getElementById("size").selectedIndex = 1;
 	document.getElementById("size").onchange = resetSize;
 	
-	$('#canvas').mousedown(function(){
+	$('#canvas').on('touchstart mousedown', function(e){
+		e.preventDefault();
 	    mouseDown = true;
 	});
 
-	$(document).mouseup(function(){
+	$(document).on('touchend mouseup', function(e){
+		e.preventDefault();
 	    mouseDown = false;
 	});
 
@@ -104,6 +106,19 @@ $(document).ready(function(){
 		var offsets = $('#canvas').offset();
 		currentx = e.pageX - offsets.left;
 		currenty = e.pageY - offsets.top;
+		currentx = parseInt(currentx/size) * size;
+		currenty = parseInt(currenty/size) * size;
+
+		ctx.fillRect(currentx, currenty, size, size);
+	});
+
+	$('#canvas').on('touchmove', function(e){
+	    if(mouseDown == false) return;
+
+	    // Mouse click + moving logic here
+		var offsets = $('#canvas').offset();
+		currentx = e.originalEvent.targetTouches[0].pageX - offsets.left;
+		currenty = e.originalEvent.targetTouches[0].pageY - offsets.top;
 		currentx = parseInt(currentx/size) * size;
 		currenty = parseInt(currenty/size) * size;
 
