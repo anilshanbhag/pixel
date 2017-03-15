@@ -95,7 +95,6 @@ $(document).ready(function(){
 	});
 
 	$(document).on('touchend mouseup', function(e){
-		e.preventDefault();
 	    mouseDown = false;
 	});
 
