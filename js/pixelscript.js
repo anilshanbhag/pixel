@@ -89,7 +89,7 @@ function convertCanvas() {
 
 var state = [];
 
-function getTouchCoord(e) {
+function getTouchCoords(e) {
     var offsets = $('#canvas').offset();
 	var currentx, currenty;
 	currentx = e.originalEvent.targetTouches[0].pageX - offsets.left;
